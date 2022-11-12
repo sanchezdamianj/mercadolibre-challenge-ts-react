@@ -1,0 +1,16 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+@use "./breakpoints" as *;
+
+
+.breadcrumb {
+    font-size: 14px;
+    color: $gray;
+    // @include flex(center,start);
+    margin: 16px 110px;
+    
+}
+
+.categoryNotFound{
+    @include flex(center,flex-start);
+}

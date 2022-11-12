@@ -1,0 +1,57 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+@use "./breakpoints" as *;
+
+.container__card-product {
+  margin: 0px 110px 0 110px;
+  background-color: $bg-productCard;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 0 0 0.1em rgba(0, 0, 0, 0.2);
+  transition-property: box-shadow;
+  transition-duration: 0.3s ;
+  &:hover {
+    box-shadow: 0 0 1.5em rgba(0, 0, 0, 0.2);
+  }
+  & .imageCard {
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    height: 180px;
+    width: 180px;
+    border-radius: 4px;
+    object-fit: cover;
+    margin: 16px;
+  }
+  & .productData {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    & .product__price {
+      display: flex;
+      font-size: 24px;
+      font-weight: 400;
+      & .iconVerif {
+        vertical-align: middle;
+        height: 16px;
+        width: 16px;
+        margin: 0 10px;
+        margin-bottom: 32px;
+      }
+      & .product__location {
+        position: absolute;
+        margin: 10px 110px 10px 110px;
+        right: 50px;
+        font-size: 10px;
+        color: $gray;
+      }
+    }
+
+    & .product__description {
+      font-size: 14px;
+      color: $gray-over;
+      max-width: max-content;
+    }
+  }
+}

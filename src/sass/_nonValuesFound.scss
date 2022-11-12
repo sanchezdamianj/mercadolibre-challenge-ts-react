@@ -1,0 +1,16 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+@use "./breakpoints" as *;
+
+.nonValuesFound {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px;
+    @include flex(center,center)
+}
+#messageNotFound{
+    text-align: center;
+    padding: 20px;
+    color: $gray;
+    opacity: 0.667;
+}
