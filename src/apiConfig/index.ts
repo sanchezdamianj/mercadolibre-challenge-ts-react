@@ -1,8 +1,7 @@
 const baseUrl = "https://api.mercadolibre.com";
 
 export const fetchProducts = (query: string) => {
-  const keyword = query.substring(query.indexOf("="));
-  return fetch(`${baseUrl}/sites/MLA/search?q=${keyword}`);
+  return fetch(`http://localhost:3000/api/items?q=${query}`);
 };
 
 export const fetchProductDetail = (itemId: string) => {

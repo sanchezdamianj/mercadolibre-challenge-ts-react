@@ -2,13 +2,11 @@ import { fetchProducts } from "@/apiConfig";
 import { CategoriesType, Product } from "@/types";
 import { Spinner } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import BreadCrumb from "./BreadCrumbCategories";
+import BreadCrumb from "./BreadCrumb";
 import NonValuesFound from "./NoValuesFound";
 import ProductCard from "./ProductCard";
 
-
-
-const ListItem = () => {
+const ListItem: React.FC = () => {
   const [categories, setCategories] = useState<CategoriesType[]>([]);
   const [items, setItems] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<Boolean>(false);
@@ -19,8 +17,8 @@ const ListItem = () => {
     fetchProducts(search as string)
       .then((res) => res.json())
       .then((data) => {
-        setItems(data.results);
-        setCategories(data.filters[0]?.values);
+        setItems(data.items);
+        setCategories(data.categories);
       })
       .catch((error) => {
         throw new Error(error.message);
@@ -29,7 +27,7 @@ const ListItem = () => {
   }, [search]);
 
   return !isLoading ? (
-    <div className="">
+    <>
       <BreadCrumb categories={categories} />
       {items.length ? (
         items.slice(1, 5).map((item) => {
@@ -38,7 +36,7 @@ const ListItem = () => {
       ) : (
         <NonValuesFound />
       )}
-    </div>
+    </>
   ) : (
     <div className="spinner">
       <Spinner

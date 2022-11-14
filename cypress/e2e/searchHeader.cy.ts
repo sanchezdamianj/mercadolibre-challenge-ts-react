@@ -20,5 +20,13 @@ describe("Testing search in Header component", () => {
     cy.visit("/items?search=mate");
     cy.get(".logo", { timeout: 2000 }).eq(0).click();
   });
+
+  it("From Home page searching by Product id", () => {
+    cy.get("#search").type("MLA1216206022").should("be.visible");
+    cy.get("#search-button").click();
+    cy.get(".container__card-product").children().should("be.visible");
+    cy.get(".container__card-product").children().eq(3).click();
+    cy.url().should("include", "/items/MLA1216206022");
+  });
 });
 

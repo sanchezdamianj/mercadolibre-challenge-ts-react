@@ -12,5 +12,7 @@
 }
 
 .categoryNotFound{
-    @include flex(center,flex-start);
+    @include flex(center,start);
+    margin: 16px 0 16px 110px;
+    font-size:14px;
 }

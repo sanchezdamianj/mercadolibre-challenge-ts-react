@@ -130,7 +130,9 @@
 .categoryNotFound {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: start;
+  margin: 16px 0 16px 110px;
+  font-size: 14px;
 }
 
 .grid-detailContainer {

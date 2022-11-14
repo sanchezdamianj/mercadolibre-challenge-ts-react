@@ -1,22 +1,18 @@
 export interface Product {
   id: string;
   title: string;
-  price: number;
+  price: PriceProduct;
   prices?: PriceProduct;
   thumbnail: string;
   picture?: string;
   condition: string;
   free_shipping?: boolean;
-  address?: Address;
-}
-
-export interface Address {
-  state_name?: string;
+  address?: string;
 }
 export interface ProductDetailType extends Product {
   pictures?: any[] | never[];
-  sold_quantity: number;
-  category_id: string;
+  sold_quantity?: number;
+  category_id?: string;
 }
 
 export interface GetProducts {
@@ -43,11 +39,7 @@ export interface PricesType {
   currency_id: string;
 }
 export interface CategoriesType {
-  id: string;
+  id?: string;
   name: string;
-  path_from_root?: CategoryIds[];
-}
-export interface CategoryIds {
-  id: string;
-  name: string;
+
 }

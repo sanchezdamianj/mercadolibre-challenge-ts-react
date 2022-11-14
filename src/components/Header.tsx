@@ -30,9 +30,9 @@ const Header = (): JSX.Element => {
             navigate(`/items/${keyword.toString()}`);
           } else {
             navigate(`/items?search=${keyword}`);
-            if (data.filters[0].values) {
-              setCategories(data.filters[0].values);
-            }
+          }
+          if (data.filters[0].values) {
+            setCategories(data.filters[0].values);
           }
         })
         .catch((error: any) => {
