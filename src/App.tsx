@@ -5,7 +5,7 @@ import Layout from "./container/Layout";
 import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 
-const App:React.FC = () => {
+const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Layout>

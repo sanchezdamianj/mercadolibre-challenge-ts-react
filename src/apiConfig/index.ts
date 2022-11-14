@@ -1,16 +1,12 @@
-const baseUrl = "https://api.mercadolibre.com";
-
 export const fetchProducts = (query: string) => {
   return fetch(`http://localhost:3000/api/items?q=${query}`);
 };
 
 export const fetchProductDetail = (itemId: string) => {
-  return fetch(`${baseUrl}/items/${itemId}`);
-};
-export const getProductDescription = (itemId: string) => {
-  return fetch(`${baseUrl}/items/${itemId}/description`);
+  return fetch(`http://localhost:3000/api/items${itemId}`);
 };
 
 export const getCategoryDetail = (id: string) => {
-  return fetch(`${baseUrl}/categories/${id}`);
+  return fetch(`https://api.mercadolibre.com/categories/${id}`);
+  // return fetch(`http://localhost:3000/api/categories/${id}`);
 };

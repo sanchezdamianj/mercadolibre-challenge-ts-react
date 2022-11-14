@@ -5,8 +5,8 @@ import search from "../assets/ic_Search.png";
 import logo from "../assets/Logo_ML.png";
 
 const Header = (): JSX.Element => {
-  const [keyword, setKeyword] = useState("");
-  const [categories, setCategories] = useState([]);
+  const [keyword, setKeyword] = useState<string>("");
+  const [categories, setCategories] = useState<string[]>([]);
   const navigate = useNavigate();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -23,24 +23,23 @@ const Header = (): JSX.Element => {
     setKeyword(keyword.trim());
 
     if (keyword.length > 0) {
-      fetchProducts(keyword as string)
-        .then((res) => res.json())
-        .then((data) => {
-          if (keyword.includes("MLA")) {
-            navigate(`/items/${keyword.toString()}`);
-          } else {
+      if (keyword.includes("MLA")) {
+        navigate(`/items/${keyword.toString()}`);
+      } else {
+        fetchProducts(keyword as string)
+          .then((res) => res.json())
+          .then((data) => {
             navigate(`/items?search=${keyword}`);
-          }
-          if (data.filters[0].values) {
-            setCategories(data.filters[0].values);
-          }
-        })
-        .catch((error: any) => {
-          throw new Error(error.message);
-        });
+            if (data?.categories) {
+              setCategories(data?.categories);
+            }
+          })
+          .catch((error: any) => {
+            throw new Error(error.message);
+          });
+      }
     }
   };
-
   return (
     <>
       <div className="header">

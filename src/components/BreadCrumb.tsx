@@ -2,15 +2,13 @@ import { CategoriesType } from "@/types";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 
 interface CategoriesProduct {
-  categories: CategoriesType[];
+  categories: string[];
 }
 
 const BreadCrumb = ({ categories }: CategoriesProduct) =>
-
   categories?.length > 0 ? (
     <Breadcrumb className="breadcrumb" spacing="8px" separator={">"}>
-      {categories?.map(({ name }) => {
-    
+      {categories.map((name: string) => {
         return (
           <BreadcrumbItem key={name}>
             <BreadcrumbLink>{name}</BreadcrumbLink>

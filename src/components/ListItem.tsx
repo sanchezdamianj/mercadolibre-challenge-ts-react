@@ -1,5 +1,5 @@
 import { fetchProducts } from "@/apiConfig";
-import { CategoriesType, Product } from "@/types";
+import { Product } from "@/types";
 import { Spinner } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import BreadCrumb from "./BreadCrumb";
@@ -7,7 +7,7 @@ import NonValuesFound from "./NoValuesFound";
 import ProductCard from "./ProductCard";
 
 const ListItem: React.FC = () => {
-  const [categories, setCategories] = useState<CategoriesType[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [items, setItems] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<Boolean>(false);
   const search = new URLSearchParams(location.search).toString();

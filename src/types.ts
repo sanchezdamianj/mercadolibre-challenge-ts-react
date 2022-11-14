@@ -41,5 +41,4 @@ export interface PricesType {
 export interface CategoriesType {
   id?: string;
   name: string;
-
 }

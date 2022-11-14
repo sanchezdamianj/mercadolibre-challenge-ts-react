@@ -28,12 +28,11 @@ const getProducts = async (query) => {
       condition: element.condition,
       free_shipping: element.shipping.free_shipping,
       address: element.address.state_name,
-
     };
   });
 
-  const category = await getCategories(fetched.data.results[0].category_id);
-  const cateProducts = [category.data.path_from_root[0]];
+  const category = await getCategories(fetched.data.results[0]?.category_id);
+  const cateProducts = [category.data.path_from_root[0]][0].name.split(",");
 
   return {
     author: author,
@@ -45,7 +44,7 @@ const getProducts = async (query) => {
 const getProductById = async (id) => {
   const { data: data } = await axios.get(`${BASE_URL}/items/${id}`);
   const description = await axios.get(`${BASE_URL}/items/${id}/description`);
-  return {
+  const product = {
     author: author,
     item: {
       id: data.id,
@@ -60,8 +59,11 @@ const getProductById = async (id) => {
       free_shipping: data.shipping.free_shipping,
       sold_quantity: data.sold_quantity,
       description: description.data.plain_text,
+      category_id: data.category_id,
     },
   };
+
+  return product;
 };
 
 module.exports = { getCategories, getProducts, getProductById };

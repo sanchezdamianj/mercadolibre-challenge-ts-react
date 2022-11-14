@@ -1,6 +1,4 @@
-import {
-  fetchProductDetail, getProductDescription
-} from "@/apiConfig";
+import { fetchProductDetail, getCategoryDetail } from "@/apiConfig";
 import BreadCrumbCategory from "@/components/Category";
 import { ProductDetailType } from "@/types";
 import { Spinner } from "@chakra-ui/react";
@@ -16,16 +14,12 @@ const ProductDetail = (): JSX.Element => {
     const position = id.indexOf("/", 2);
     const parseString = id.substring(position);
     setIsLoading(true);
-    fetchProductDetail(`${parseString}`)
+    fetchProductDetail(parseString)
       .then((res) => res.json())
       .then((data) => {
-        setProd(data);
+        setProd(data.item);
+        setDescription(data.item.description);
         setIsLoading(false);
-      });
-    getProductDescription(parseString.toString())
-      .then((res) => res.json())
-      .then((data) => {
-        setDescription(data.plain_text);
       });
   }, [id]);
 
@@ -36,13 +30,7 @@ const ProductDetail = (): JSX.Element => {
           <BreadCrumbCategory category={prod.category_id} />
           <div className="grid-detailContainer">
             <div className="productImgDesc">
-              <img
-                className="detailImg"
-                src={
-                  prod.pictures ? prod.pictures[0].secure_url : prod.thumbnail
-                }
-                alt={prod.title}
-              />
+              <img className="detailImg" src={prod.picture} alt={prod.title} />
               <h3 className="titleDescription">Description del Producto</h3>
               <p className="detailDescription">{description}</p>
             </div>
@@ -59,7 +47,7 @@ const ProductDetail = (): JSX.Element => {
                   style: "currency",
                   currency: "ARS",
                   maximumFractionDigits: 0,
-                }).format(prod.price)}
+                }).format(prod.price.amount)}
               </span>
               <button className="btn-purchase">
                 <span>Comprar</span>
