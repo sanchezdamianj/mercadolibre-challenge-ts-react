@@ -3,7 +3,7 @@
 This is a challenge for a Frontend position in Mercado Libre. 
 
 
-## Construido con 🛠️ bootstraped by Vite
+## Build with 🛠️ bootstraped by Vite
 
 * [React](https://es.reactjs.org/docs) - Frontend JS Library -React v18- 
 * [TypeScript](https://www.typescriptlang.org/docs/) - Typos
@@ -43,7 +43,7 @@ In the project directory, you can run:
     -   Run the following command
     -   pnpm run dev
 
-### `npm start`
+### `pnpm start`
     -   Inside of src folder, open a terminal
     -   This server runs in PORT 5173
     -   Run the following command
@@ -57,21 +57,21 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 
-## Versionado 📌
+## Versioned 📌
 
-Usamos [git](http://git.io/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/sanchezdamianj/mercadolibre-challenge-ts-react).
+Using [git](http://git.io/) to the versioned. All Versions availables, look at [tags in the repository](https://github.com/sanchezdamianj/mercadolibre-challenge-ts-react).
 
-## Autores ✒️
+## Author ✒️
 * **Damian Javier Sanchez** - *Frontend Proyect* - [sanchezdamianj](https://github.com/sanchezdamianj)
 ## Skills to create this project ✒️
 [![My Skills](https://skills.thijs.gg/icons?i=js,html,css,react,typescript,tailwind,bootstrap,cypress,jest,node,express)](https://skills.thijs.gg)
 
 ## Licencia 📄
 
-Este proyecto es propiedad de Damian Javier Sanchez
+This project is property of Damian Javier Sanchez
 
 ---
-⌨️ con ❤️ por [sanchezdamianj](https://github.com/sanchezdamianj/mercadolibre-challenge-ts-react) 😊
+⌨️ with ❤️ by [sanchezdamianj](https://github.com/sanchezdamianj/mercadolibre-challenge-ts-react) 😊
 
 
 
